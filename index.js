@@ -37,26 +37,25 @@ function HomePage() {
 const app = document.getElementById("app")
 
 function Header() {
-    return (<h1>Develop. Preview. Ship. 🚀</h1>)
+    return (<h1>Big. Dirty. Sandwiches.</h1>)
 }
 
 function Main(props) {
     return (
-        <p style={{...props}}>{props.bodyText}</p>,
         <ul>
             {campaigns.map(campaign => (
                 <>
-                    <li>{campaign.CampaignName}</li>
+                    <h3>{campaign.CampaignName}</h3>
                     <li>{campaign.CampaignDescription}</li>
                     <ul>
-                    {campaign.CampaignContents.map(campaignContent => (
-                        <>
-                            <li>{campaignContent.ProductName}</li>
-                            <li>{campaignContent.ProductSpecial}</li>
-                            <li>{campaignContent.ProductSpecialDescription}</li>
-                            <br></br>
-                        </>
-                    ))}
+                        {campaign.CampaignContents.map(campaignContent => (
+                            <>
+                                <li>{campaignContent.ProductName}</li>
+                                <li>{campaignContent.ProductSpecial}</li>
+                                <li>{campaignContent.ProductSpecialDescription}</li>
+                                <br></br>
+                            </>
+                        ))}
                     </ul>
                     <br></br>
                 </>
