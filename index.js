@@ -1,3 +1,5 @@
+const app = document.getElementById("app")
+
 const campaigns =
 [
     {
@@ -24,23 +26,53 @@ const campaigns =
     }
 ]
 
+
 function HomePage() {
     return (
         <>
             <Header />
-            <Main bodyText='hi my name is' color='blue' backgroundColor='lightgreen'/>
+            <Main/>
             <Footer />
         </>
     )
 }
 
-const app = document.getElementById("app")
 
 function Header() {
-    return (<h1>Big. Dirty. Sandwiches.</h1>)
+    return (<h1>The Dirty Burger</h1>)
 }
 
-function Main(props) {
+function Main() {
+    return (
+        <>
+            <BurgerButton/>
+            <Campaigns/>
+        </>
+    )
+}
+
+function Footer() {
+    return (<footer style={{position: 'absolute', bottom: 0, marginTop: '40px', height :'40px}'}}>Footer Copywrite Example: {new Date().getFullYear()}</footer>)
+}
+
+
+function BurgerButton() {
+    const [likes, setLikes] = React.useState(1)
+
+    function BurgerPlus() {
+        setLikes(likes + 1)
+        console.log(likes)
+        return
+    }
+
+    return (
+        <div>
+            <button onClick={BurgerPlus}>1 Burger Please</button>
+        </div>
+    )
+}
+
+function Campaigns(props) {
     return (
         <ul>
             {campaigns.map(campaign => (
@@ -64,8 +96,5 @@ function Main(props) {
     )
 }
 
-function Footer() {
-    return (<footer style={{position: 'absolute', bottom: 0, marginTop: '40px', height :'40px}'}}>Footer Copywrite Example: {new Date().getFullYear()}</footer>)
-}
 
 ReactDOM.render(<HomePage />, app)
