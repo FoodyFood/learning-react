@@ -1,10 +1,10 @@
 function HomePage() {
     return (
-      <div>
-        {/* Nesting the Header component */}
-        <Header />
-        <Body bodyText='hi my name is' color='blue' backgroundColor='green'/>
-      </div>
+        <>
+            <Header />
+            <Main bodyText='hi my name is' color='blue' backgroundColor='green'/>
+            <Footer />
+        </>
     )
 }
 
@@ -14,8 +14,12 @@ function Header() {
     return (<h1>Develop. Preview. Ship. 🚀</h1>)
 }
 
-function Body(props) {
+function Main(props) {
     return (<p style={{...props}}>{props.bodyText}</p>)
+}
+
+function Footer() {
+    return (<footer style={{position: 'absolute', bottom: 0, marginTop: '40px', height :'40px}'}}>Footer Copywrite Example: {new Date().getFullYear()}</footer>)
 }
 
 ReactDOM.render(<HomePage />, app)
