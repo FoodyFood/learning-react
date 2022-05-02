@@ -1,8 +1,34 @@
+const campaigns =
+[
+    {
+        "CampaignName": "Monday Campaign",
+        "CampaignDescription": "This is the one we run on Mondays",
+        "CampaignContents": [
+            {
+                "ProductName": "Tasty Lobbies",
+                "ProductSpecial": "20% off lobsters",
+                "ProductSpecialDescription": "Best in the west, home grown lobster"
+            }
+        ]
+    },
+    {
+        "CampaignName": "Tuesday Campaign",
+        "CampaignDescription": "This is the one we run on Tuesdays",
+        "CampaignContents": [
+            {
+                "ProductName": "Huge Beers",
+                "ProductSpecial": "20% extra beer in every pint!",
+                "ProductSpecialDescription": "Don't spill it or you're fired"
+            }
+        ]
+    }
+]
+
 function HomePage() {
     return (
         <>
             <Header />
-            <Main bodyText='hi my name is' color='blue' backgroundColor='green'/>
+            <Main bodyText='hi my name is' color='blue' backgroundColor='lightgreen'/>
             <Footer />
         </>
     )
@@ -15,7 +41,28 @@ function Header() {
 }
 
 function Main(props) {
-    return (<p style={{...props}}>{props.bodyText}</p>)
+    return (
+        <p style={{...props}}>{props.bodyText}</p>,
+        <ul>
+            {campaigns.map(campaign => (
+                <>
+                    <li>{campaign.CampaignName}</li>
+                    <li>{campaign.CampaignDescription}</li>
+                    <ul>
+                    {campaign.CampaignContents.map(campaignContent => (
+                        <>
+                            <li>{campaignContent.ProductName}</li>
+                            <li>{campaignContent.ProductSpecial}</li>
+                            <li>{campaignContent.ProductSpecialDescription}</li>
+                            <br></br>
+                        </>
+                    ))}
+                    </ul>
+                    <br></br>
+                </>
+            ))}
+        </ul>   
+    )
 }
 
 function Footer() {
