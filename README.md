@@ -14,6 +14,6 @@ Take a look, it's pretty basic.
 
 It has a header, a body, and a footer.
 
-The lists are rendered dynamically and will loop if there are ore elements added to the object
+The lists are rendered dynamically and will loop if there are more elements added to the object
 
 ![index](./docs/index.jpg)
